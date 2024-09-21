@@ -98,7 +98,7 @@ exports.updateById = async (req, res) => {
               FechaRegistro: req.body.FechaRegistro,
               Estado: req.body.Estado
             }
-            let result = await Usuario.update(updatedObject, {returning: true, where: {id: userid}});
+            let result = await usuario.update(updatedObject, {returning: true, where: {id: userid}});
             
             // return the response to client
             if(!result) {
@@ -132,7 +132,7 @@ exports.deleteById = async (req, res) => {
                 error: "404",
             });
         } else {
-            await Usuario.destroy(usuario);
+            await usuario.destroy();
             res.status(200).json({
                 message: "Delete Successfully a user with id = " + userid,
                 song: usuario,
