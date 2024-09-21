@@ -132,7 +132,7 @@ exports.deleteById = async (req, res) => {
                 error: "404",
             });
         } else {
-            await Usuario.destroy();
+            await Usuario.destroy(usuario);
             res.status(200).json({
                 message: "Delete Successfully a user with id = " + userid,
                 song: usuario,
